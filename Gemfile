@@ -11,7 +11,7 @@ gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.4.1'
 
 group :development, :test do
-  gem 'pg', '0.18.4'
+  gem 'pg'
   gem 'byebug',  '9.0.0', platform: :mri
 end
 
@@ -30,5 +30,5 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.18.4'
+  gem 'pg'
 end
