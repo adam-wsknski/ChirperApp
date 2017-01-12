@@ -11,7 +11,7 @@ default: &default
 
 development:
   <<: *default
-  database: db/Chirper
+  database: db/development.sql
 
 
 # Warning: The database defined as "test" will be erased and
