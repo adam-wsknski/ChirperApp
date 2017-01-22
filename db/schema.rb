@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121114443) do
+ActiveRecord::Schema.define(version: 20170122115028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,38 +18,15 @@ ActiveRecord::Schema.define(version: 20170121114443) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "password_digest"
     t.string   "remember_digest"
-    t.boolean  "admin",           default: false
-    t.index ["email"], name: "index_users_on_email", using: :btree
-  end
-
-  create_table "weather", id: false, force: :cascade do |t|
-    t.date    "cet"
-    t.integer "temperatura_maksymalnac"
-    t.integer "temperatura_sredniac"
-    t.integer "temperatura_minimalnac"
-    t.integer "punkt_rosyc"
-    t.integer "meandew_pointc"
-    t.integer "min_dewpointc"
-    t.integer "max_wilgotnosc"
-    t.integer "mean_wilgotnosc"
-    t.integer "min_wilgotnosc"
-    t.float   "max_cisnienie_na_poziomi_morzahpa"
-    t.float   "mean_cisnienie_na_poziomie_morzahpa"
-    t.float   "min_cisnienie_na_poziomie_morzahpa_"
-    t.integer "max_widzialnosckm"
-    t.integer "mean_widzialnosckm"
-    t.integer "min_widzialnosckm"
-    t.integer "max_predkosc_wiatru_km_h"
-    t.integer "mean_predkosc_wiatru_km_h"
-    t.integer "max_predkosc_w_porywie_km_h"
-    t.float   "opadymm"
-    t.integer "cloudcover"
-    t.string  "wydarzenia",                          limit: 50
-    t.integer "winddirdegrees"
+    t.boolean  "admin",             default: false
+    t.string   "activation_digest"
+    t.boolean  "activated",         default: false
+    t.datetime "activated_at"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
 end
