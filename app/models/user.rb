@@ -77,11 +77,17 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
-  private
+  # defines a proto feed
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
+  
 
-    # Creates and assigns activation token and digest
-    def create_activation_digest
-      self.activation_token = User.new_token
-      self.activation_digest = User.digest(activation_token)
-    end
+    private
+
+      # Creates and assigns activation token and digest
+      def create_activation_digest
+        self.activation_token = User.new_token
+        self.activation_digest = User.digest(activation_token)
+      end
 end
