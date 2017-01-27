@@ -48,33 +48,7 @@ ActiveRecord::Schema.define(version: 20170126121552) do
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
-    t.index ["email"], name: "index_users_on_email", using: :btree
-  end
-
-  create_table "weather", id: false, force: :cascade do |t|
-    t.date    "cet"
-    t.integer "temperatura_maksymalnac"
-    t.integer "temperatura_sredniac"
-    t.integer "temperatura_minimalnac"
-    t.integer "punkt_rosyc"
-    t.integer "meandew_pointc"
-    t.integer "min_dewpointc"
-    t.integer "max_wilgotnosc"
-    t.integer "mean_wilgotnosc"
-    t.integer "min_wilgotnosc"
-    t.float   "max_cisnienie_na_poziomi_morzahpa"
-    t.float   "mean_cisnienie_na_poziomie_morzahpa"
-    t.float   "min_cisnienie_na_poziomie_morzahpa_"
-    t.integer "max_widzialnosckm"
-    t.integer "mean_widzialnosckm"
-    t.integer "min_widzialnosckm"
-    t.integer "max_predkosc_wiatru_km_h"
-    t.integer "mean_predkosc_wiatru_km_h"
-    t.integer "max_predkosc_w_porywie_km_h"
-    t.float   "opadymm"
-    t.integer "cloudcover"
-    t.string  "wydarzenia",                          limit: 50
-    t.integer "winddirdegrees"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
   add_foreign_key "microposts", "users"
